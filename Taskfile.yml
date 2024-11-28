@@ -1,0 +1,37 @@
+version: '3'
+
+tasks:
+  install:
+    desc: Install Python dependencies
+    cmds:
+      - python -m pip install -r requirements.txt
+
+  run:
+    desc: Start the FastAPI server
+    cmds:
+      #- uvicorn api:app --reload
+
+  clean:
+    desc: Clean Python cache files
+    cmds:
+      - find . -type d -name "__pycache__" -exec rm -r {} +
+      - find . -type f -name "*.pyc" -delete
+      - find . -type f -name "*.pyo" -delete
+      - find . -type f -name "*.pyd" -delete
+
+  lint:
+    desc: Run code linting
+    cmds:
+      - python -m pip install flake8
+      - flake8 .
+
+  test:
+    desc: Run tests
+    cmds:
+      - python -m pip install pytest
+      - pytest
+
+  default:
+    deps: [install]
+    cmds:
+      - task: run

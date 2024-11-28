@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Interface</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Local Chat with AI</h1>
+    <div id="chat-container">
+        <div class="typing-indicator">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div id="input-container">
+        <div class="input-group">
+            <select id="model-select" class="model-dropdown">
+                <option value="llama3.2">llama3.2</option>
+                <option value="llama2">llama2</option>
+                <option value="mistral">mistral</option>
+            </select>
+            <input type="text" id="user-input" placeholder="Type your message here..." />
+        </div>
+        <button onclick="sendMessage()" id="send-button">Send</button>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>API Endpoint: http://localhost:8002/api/chat</p>
+            <p>Features:</p>
+            <ul>
+                <li>Real-time chat interface</li>
+                <li>Typing indicators</li>
+                <li>Error handling</li>
+                <li>Enter key support</li>
+            </ul>
+            <p>Built with FastAPI/Flask backend and vanilla JavaScript frontend</p>
+            <hr>
+            <div class="footer-bottom">
+                <p>Created by: Barth. Feudong</p>
+                <p>&copy; 2024 AI Chat Interface. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>
