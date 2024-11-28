@@ -9,7 +9,7 @@ tasks:
   run:
     desc: Start the FastAPI server
     cmds:
-      #- uvicorn api:app --reload
+      - uvicorn api:app --reload
 
   clean:
     desc: Clean Python cache files
