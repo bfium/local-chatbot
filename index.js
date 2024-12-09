@@ -22,7 +22,7 @@ async function sendMessage() {
     }
 
     try {
-        const response = await fetch('http://localhost:8002/api/chat', {
+        const response = await fetch('http://localhost:8000/api/chat', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -62,15 +62,27 @@ async function sendMessage() {
     }
 }
 
+function formatMarkdownContent(content) {
+    return content
+        .replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>') // Code blocks
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Bold
+        .replace(/\*(.*?)\*/g, '<em>$1</em>') // Italic
+        .replace(/\n/g, '<br>')
+        .replace(/^# (.*$)/gm, '<br><h1>$1</h1>') // H1
+        .replace(/^## (.*$)/gm, '<br><h2>$1</h2>') // H2
+        .replace(/^### (.*$)/gm, '<br><h3>$1</h3>'); // H3
+}
+
 function addMessage(content, sender) {
     const container = document.getElementById('chat-container');
     const messageDiv = document.createElement('div');
     messageDiv.className = `message ${sender}-message`;
     
-    // Safely escape HTML content
-    const textNode = document.createTextNode(content);
-    messageDiv.appendChild(textNode);
+    // Format the content with markdown and write to user
+    const formattedContent = formatMarkdownContent(content);
+    messageDiv.innerHTML = formattedContent;
     
+    // Add message to container and scroll to bottom
     container.appendChild(messageDiv);
     container.scrollTop = container.scrollHeight;
 }

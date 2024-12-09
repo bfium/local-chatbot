@@ -1,4 +1,7 @@
 fastapi
 uvicorn
 pydantic
-ollama
+ollama>=0.1.27
+icalendar
+pytz
+reportlab
