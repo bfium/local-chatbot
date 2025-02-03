@@ -1,0 +1,29 @@
+{
+    "chats": [
+        {"id": "1", "title": "Chat 1", "messages": [
+            {
+                "role": "assistant", 
+                "content": "big news on AI today"
+            }, 
+            {
+                "role": "user", 
+                "content": "what is the news on AI today?"
+            }
+        ]}, 
+        {"id": "2", "title": "Chat 2", "messages": []}, 
+        {
+            "id": "9f4a2df1-3aff-416f-b938-951eec880fea", 
+            "title": "Chat 1", 
+            "messages": [
+                {
+                    "role": "assistant", 
+                    "content": "Hello, how are you?"
+                }, 
+                {
+                    "role": "user", 
+                    "content": "I'm fine, thank you!"
+                }
+            ]
+        }
+    ]
+}

@@ -14,14 +14,26 @@ h1 {
     text-align: center;
     margin-bottom: 30px;
 }
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #565555;
+        color: #ffffff;
+    }
+}
 
+@media (prefers-color-scheme: light) {
+    body {
+        background-color: #ffffff;
+        color: #565555;
+    }
+}
 #chat-container {
     height: 500px;
     border: 1px solid #e0e0e0;
     padding: 20px;
     overflow-y: auto;
     margin-bottom: 20px;
-    background-color: white;
+    background-color: rgb(234, 234, 234);
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     min-height: 200px;
@@ -94,7 +106,7 @@ h1 {
 
 button {
     padding: 12px 24px;
-    background-color: #007bff;
+    background-color: #72b6ff;
     color: white;
     border: none;
     border-radius: 8px;

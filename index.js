@@ -1,6 +1,8 @@
 async function sendMessage() {
     const input = document.getElementById('user-input');
     const sendButton = document.getElementById('send-button');
+    const modelSelect = document.getElementById('model-select');
+    const selectedModel = modelSelect.value;
     if (!input) return;
     
     const message = input.value.trim();
@@ -28,7 +30,7 @@ async function sendMessage() {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                model: 'llama3.2',  
+                model: selectedModel,  
                 messages: [{
                     role: 'user',
                     content: message
